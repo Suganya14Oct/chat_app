@@ -8,6 +8,9 @@ class ShowChatScreen extends StatefulWidget {
 }
 
 class _ShowChatScreenState extends State<ShowChatScreen> {
+
+  TextEditingController _messageController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,9 +18,13 @@ class _ShowChatScreenState extends State<ShowChatScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
           backgroundColor: Colors.black12,
-          title: const Row(
+          title:  Row(
             children: [
-              Icon(Icons.arrow_back_ios, color: Colors.black38),
+              IconButton(
+                onPressed: (){
+                  Navigator.pop(context);
+                },
+                  icon : Icon(Icons.arrow_back_ios, color: Colors.black38)),
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: CircleAvatar(
@@ -61,10 +68,49 @@ class _ShowChatScreenState extends State<ShowChatScreen> {
           );
         }),
       ),
-      bottomNavigationBar: Container(
-        height: 40.0,
-        width: 30.0,
-        color: Colors.redAccent
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: SizedBox(
+            height: 50.0,
+            child: Row(
+              children: [
+                IconButton(onPressed: (){}, icon: const Icon(Icons.attach_file)),
+                IconButton(onPressed: (){}, icon: const Icon(Icons.camera_alt)),
+                Expanded(
+                    child: TextField(
+                  controller: _messageController,
+                  maxLines: 100,
+                  cursorWidth: 1.5,
+                  cursorHeight: 17.6,
+                  cursorColor: Colors.grey,
+                      decoration: InputDecoration(
+                    enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0),
+                        borderSide: const BorderSide(color: Colors.grey)),
+                    focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20.0),
+                        borderSide: const BorderSide(color: Colors.grey)),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                        borderSide: const BorderSide(color: Colors.grey))
+                  ),
+                  style: const TextStyle(
+                        fontSize: 16.0,
+                        height: 1.3, // line height multiplier
+                      ),
+                )),
+                const SizedBox(width: 5.0),
+                CircleAvatar(backgroundColor: Colors.redAccent,
+                    child: IconButton(onPressed: (){}, icon: const Icon(Icons.mic))),
+                const SizedBox(width: 5.0),
+                CircleAvatar(backgroundColor: Colors.redAccent,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 2.3),
+                      child: IconButton(onPressed: (){}, icon: const Icon(Icons.send)),
+                    ))
+              ],
+            ),
+          ),
+        )
       )
     );
   }

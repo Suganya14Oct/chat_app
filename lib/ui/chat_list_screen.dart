@@ -52,7 +52,7 @@ class _ChatListScreenState extends State<ChatListScreen> {
                       ),
                       CircleAvatar(backgroundColor: Colors.red, radius: 9.5,child: Padding(
                         padding: EdgeInsets.only(bottom: 0.5),
-                        child: Flexible(child: Text('1', style: TextStyle(fontSize: 12.0, color: Colors.black, fontWeight: FontWeight.bold))),
+                        child: Text('1', style: TextStyle(fontSize: 12.0, color: Colors.black, fontWeight: FontWeight.bold)),
                       ))
                     ],
                   ),
