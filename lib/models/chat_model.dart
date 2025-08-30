@@ -1,5 +1,7 @@
 
 
+import 'package:chat_app/blocs/chat_bloc/chat_bloc.dart';
+
 class ChatModel {
   final String chatId;
   final String messageContent;
@@ -24,4 +26,3 @@ class ChatModel {
 
 }
 
-enum MessageType {text, image, video, audio, file}
