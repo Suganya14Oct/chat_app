@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:chat_app/blocs/chat_bloc/chat_bloc.dart';
+import 'package:chat_app/models/notification_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'notification_event.dart';
